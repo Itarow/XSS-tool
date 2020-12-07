@@ -1,2 +1,2 @@
 # XXS-tool
-Wild card XSS - dev ny Itarow and W00dy
+Wild card XSS - dev by Itarow and W00dy
