@@ -19,7 +19,7 @@ class Sender:
     def setField(self, field):
         self.fields = field
         
-    def craftData(self):
+    def craftData(self, payload):
         crafted = []
         if self.field in self.fields:        
             fields = self.fields.split('&')
