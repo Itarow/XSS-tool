@@ -31,3 +31,4 @@ class SenderGUI:
         
         sender = Sender(url=target, data=data, field=field)
         sender.send(payload)
+        

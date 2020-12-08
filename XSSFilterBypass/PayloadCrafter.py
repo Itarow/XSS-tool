@@ -47,3 +47,4 @@ class PayloadCrafter:
                 payloads.append(self.craft(payload))
         self.payloads = payloads
         return self.payloads
+    

@@ -1,14 +1,19 @@
 #!/usr/bin/python3
+import argparse
+
 from dearpygui import core, simple
+
 from XSSFilterBypass.PayloadCrafter import PayloadCrafter
 
+
+def usage():
+    print("Usage of xss-tool:")
+    print("-h, --help          : show this message and exit")
+    print("-i, --interactive   : interactive xss-tool shell")
+    print("-g, --gui           : interactive gui")
+
 def main():
-    with simple.window("Select what you want to do"):
-        core.add_text("H3110 W0r1d!")
-        core.add_input_text("string")
-        core.add_slider_float("float")
-    core.set_main_window_size(800, 800)
-    core.start_dearpygui()   
+    usage()   
 
 if __name__ == '__main__':
     main()
