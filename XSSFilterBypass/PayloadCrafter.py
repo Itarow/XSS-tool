@@ -1,5 +1,4 @@
 import sys
-import re
 
 
 class PayloadCrafter:
