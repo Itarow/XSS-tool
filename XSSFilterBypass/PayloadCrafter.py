@@ -11,9 +11,9 @@ class PayloadCrafter:
                 
         self.load_payloads()
         
-    def setGrabberAddress(self, grabberAddress):
-        if type(grabberAddress) is str:
-            self.grabberAddress = grabberAddress
+    def setGrabberAddress(self, **args):
+        if type(args["grabberAddress"]) is str:
+            self.grabberAddress = args["grabberAddress"]
         else:
             sys.stderr.write("Error. Address of the grabber has to be a string.")
             raise TypeError
