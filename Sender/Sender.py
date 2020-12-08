@@ -18,20 +18,16 @@ class Sender:
             pass
         
     def setFields(self, fields):
-        fields = fields.split('&')
-        for field in fields:
-            field = field.split('=')[0]
-        self.fields = data
+        self.fields = fields
         
     def craftData(self):
         crafted = []
         if self.field in self.fields:        
             fields = self.fields.split('&')
-            for idx, field in enumerate(fields):
-                field = field.split('=')[0]
-                if self.field == field:
+            for field in enumerate(fields):
+                if self.field==field:
+                    field = field.split('=')[0]
                     field = field + payload
-                if idx != len(fields) - 1:
                     crafted.append(field)
             crafted = '&'.join(crafted)
         else:
@@ -40,13 +36,11 @@ class Sender:
         return crafted
                         
     def send(self, payload):
-        r = requests.post(self.url, craftData(payload))
-        print(r.text)
-        
-        if payload in r.text:
-            print("[~] Injection réussie")
-        else
-            print("[~] Injection ratée")
-
+        try:
+            r = requests.post(self.url, craftData(payload))
+            print(r.text)
+            print("[~] Injection succeed, get on the page to see the result")
+        except:
+            print("[~] Error.")
         
         
