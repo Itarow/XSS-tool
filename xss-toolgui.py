@@ -4,10 +4,10 @@ from XSSFilterBypass.PayloadCrafter import PayloadCrafter
 from XSSFilterBypass.GUI import PayloadCrafterGUI
 from Sender import GUI
         
-def summonPCGUI(*args):
+def summonPCGUI(sender, data):
     pcGUI = PayloadCrafterGUI()
         
-def summonSenderGUI(*args):
+def summonSenderGUI(sender, data):
     senderGUI = GUI.SenderGUI()
         
 def main():

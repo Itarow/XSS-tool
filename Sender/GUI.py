@@ -14,4 +14,11 @@ class SenderGUI:
             core.add_button("Send", callback=self.send)
             
     def send(self, *args):
-        pass
+        host = core.get_value('host')
+        target = core.get_value('target')
+        data = core.get_value('data')
+        field = core.get_value('field')
+        payload = core.get_value('payload')
+        
+        sender = Sender(url=target, data=data, field=field)
+        sender.send(payload)
