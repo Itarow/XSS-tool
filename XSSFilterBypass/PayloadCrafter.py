@@ -11,7 +11,7 @@ class PayloadCrafter:
                 
         self.load_payloads()
         
-    def setGrabberAddress(self, **args):
+    def set_grabber_address(self, **args):
         if type(args["grabberAddress"]) is str:
             self.grabberAddress = args["grabberAddress"]
         else:
@@ -37,4 +37,11 @@ class PayloadCrafter:
     
     def craft(self, payload):
         return payload.replace(self.oldAddress, self.grabberAddress)
-        
+    
+    def return_payloads(self):
+        payloads = []
+        for payload in self.payloads:
+            if not any(self.restricted) in payload:
+                payloads.append(craft(payload))
+        self.payloads = payloads
+        return self.payloads
