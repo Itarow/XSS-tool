@@ -19,7 +19,7 @@ class PayloadCrafter:
             raise TypeError
     
     def load_payloads(self):
-        with open('payloads.txt', 'r') as payloads:
+        with open('XSSFilterBypass/payloads.txt', 'r') as payloads:
             for payload in payloads:
                 self.payloads.append(payload.strip())
         
