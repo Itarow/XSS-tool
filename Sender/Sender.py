@@ -6,7 +6,6 @@ class Sender:
     def __init__(self, **kwargs):
         self.url     = kwargs["url"]
         self.fields  = kwargs["data"] 
-        self.payload = kwargs["payload"]
         self.field   = kwargs["field"]
         try:
             self.cookie = kwargs["cookie"]
@@ -17,8 +16,8 @@ class Sender:
         except KeyError:
             pass
         
-    def setFields(self, fields):
-        self.fields = fields
+    def setField(self, field):
+        self.fields = field
         
     def craftData(self):
         crafted = []
