@@ -2,6 +2,7 @@
 from dearpygui import core, simple
 from XSSFilterBypass.PayloadCrafter import PayloadCrafter
 from XSSFilterBypass.GUI import PayloadCrafterGUI
+from Crawler.GUI import CrawlerGUI
 from Sender import GUI
         
 def summonPCGUI(sender, data):
@@ -9,12 +10,16 @@ def summonPCGUI(sender, data):
         
 def summonSenderGUI(sender, data):
     senderGUI = GUI.SenderGUI()
+  
+def summonCrawlerGUI(sender, data):
+    crawlerGUI = CrawlerGUI()
         
 def main():
     with simple.window("Select what you want to do"):
         core.add_text("H3110 W0r1d!")
         core.add_button("Craft Payloads", callback=summonPCGUI)
         core.add_button("Send Payload", callback=summonSenderGUI)
+        core.add_button("Crawl website", callback=summonCrawlerGUI)
     core.set_main_window_size(800, 800)
     core.start_dearpygui()   
 
