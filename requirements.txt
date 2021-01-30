@@ -1,6 +1,2 @@
-<<<<<<< HEAD
-dearpygui==0.6.42
-=======
 dearpygui>=0.6.42
->>>>>>> 43fb1f7c06a519d2f4c04859e01a9acf1bcb6a4f
 requests
