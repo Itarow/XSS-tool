@@ -10,12 +10,14 @@ class Crawler:
             self.url = url
             self.visited = [self.url]
             self.toVisit = []
+            self.contain_form = []
             self.crawl(url)
 
     def crawl(self, url):
         with open('logs.txt', 'a') as f:
             f.write(f"[~] Visited url: {url}\n")
         site = requests.get(url)
+        form_finder = threading.Thread(target=self.check_forms, args=(url,))
         soup = BeautifulSoup(site.text, 'lxml')
         links = []
 
@@ -41,6 +43,17 @@ class Crawler:
                 self.visited.append(link)
                 thread = threading.Thread(target=self.crawl, args=(link,))
                 thread.start()
-                
+    
+    def check_forms(self, url):
+        try:
+           r = requests.get(url)
+           if 'form' in r.text:
+               self.contain_form.append(url)
+        except:
+            print('[~] URL is invalid.')
+
     def get_crawled(self):
         return self.visited
+
+    def get_crawled_forms(self):
+    	return self.contain_form
