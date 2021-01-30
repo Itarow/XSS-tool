@@ -17,16 +17,16 @@ class Sender:
             pass
         
     def setField(self, field):
-        self.fields = field
+        self.field = field
         
     def craftData(self, payload):
         crafted = []
         if self.field in self.fields:        
             fields = self.fields.split('&')
-            for field in enumerate(fields):
-                if self.field==field:
+            for field in fields:
+                if self.field == field:
                     field = field.split('=')[0]
-                    field = field + payload
+                    field = field + '=' + payload
                     crafted.append(field)
             crafted = '&'.join(crafted)
         else:
