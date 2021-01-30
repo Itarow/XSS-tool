@@ -54,3 +54,6 @@ class Crawler:
 
     def get_crawled(self):
         return self.visited
+
+    def get_crawled_forms(self):
+    	return self.contain_form

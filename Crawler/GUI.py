@@ -20,3 +20,6 @@ class CrawlerGUI:
             self.errorMsgSet = not self.errorMsgSet
             with simple.window("Crawler"):
                 core.add_text("Please enter a url", color=(255, 0, 0))
+
+   def displayCrawler(self, sender, data):
+   	pass #@TODO
