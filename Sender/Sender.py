@@ -41,5 +41,4 @@ class Sender:
             print("[~] Injection succeed, get on the page to see the result")
         except:
             print("[~] Error.")
-        
-        
+              

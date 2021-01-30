@@ -4,16 +4,26 @@ from XSSFilterBypass.PayloadCrafter import PayloadCrafter
 
 class SenderGUI: 
     def __init__(self):
-        with simple.window("Sender"):
-            core.add_text("Welcome to the payload injector.")
-            core.add_input_text("Select a target", source="target")
-            core.add_input_text("Set data", source="data")
-            core.add_input_text("Set vulnerable field", source="field")
-            core.add_input_text("Set payload", source="payload")            
+        self.summoned = False
+
+    def summon(self):
+        try:
+            if not self.summoned:
+                with simple.window("Sender", no_close=True):
+                    core.add_text("Welcome to the payload injector.")
+                    core.add_input_text("Select a target", source="target")
+                    core.add_input_text("Set data", source="data")
+                    core.add_input_text("Set vulnerable field", source="field")
+                    core.add_input_text("Set payload", source="payload")            
             
-            core.add_button("Select payload", callback=self.listPayloads)
+                    core.add_button("Select payload", callback=self.listPayloads)
             
-            core.add_button("Send", callback=self.send)
+                    core.add_button("Send", callback=self.send)
+                self.summoned = True
+            else:
+                print('[~] This instance has already been summoned. ')
+        except:
+            print('[~] There has been an error. Please restart the application.')
     
     def listPayloads(self, *args):
         pc = PayloadCrafter()
@@ -31,4 +41,7 @@ class SenderGUI:
         
         sender = Sender(url=target, data=data, field=field)
         sender.send(payload)
-        
+    
+    def is_summoned(self):
+        return self.summoned
+
