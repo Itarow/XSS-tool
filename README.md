@@ -7,6 +7,6 @@ TODOs:
 
 - Select parameters to poison
 - Add payloads and optimize the filter
-- Add Obfuscators (jsfuck for exemple)
+- Add Obfuscators (jsfuck for example)
 - Optimize LFIScanner
 
